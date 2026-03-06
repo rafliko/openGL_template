@@ -11,7 +11,7 @@ find_package(glfw3 REQUIRED)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # Source files
-add_executable(${PROJECT_NAME} main.cpp glad.c)
+add_executable(${PROJECT_NAME} src/main.cpp src/glad.c)
 
 # Link libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw OpenGL::GL)
