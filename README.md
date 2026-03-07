@@ -4,7 +4,7 @@
 
 ### Compiling the project:
 Run the following commands in projects root directory:
-```bash
+```
 cmake -S . -B build -G Ninja
 cmake --build build --config DEBUG --target all
 ```
@@ -15,7 +15,7 @@ The compiled program should be in the build directory.
 ### Windows notes:
 Install [cmake](https://cmake.org/), [msvc](https://visualstudio.microsoft.com/pl/downloads/#build-tools-for-visual-studio-2026), [vcpkg](https://github.com/microsoft/vcpkg) and glfw3 (through vcpkg).\
 Run the commands through *"Developer PowerShell for VS 18"* and add the following argument to the cmake configuration command:
-```powershell
+```
 # WARNING: Change the path to your vcpkg installation
 -DCMAKE_TOOLCHAIN_FILE=path/to/vcpkg/scripts/buildsystems/vcpkg.cmake
 ```
