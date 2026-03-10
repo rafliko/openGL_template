@@ -1,4 +1,4 @@
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Opengl-logo.svg" width='300' style='display: block; margin: auto;'>
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Opengl-logo.svg" width='300'>
 
 # OpenGL project template
 
