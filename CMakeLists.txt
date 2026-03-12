@@ -13,6 +13,7 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/external/glfw)
 # Include paths
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/glad/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/stb_image)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/glm)
 
 # Source files
 add_executable(${PROJECT_NAME} 
