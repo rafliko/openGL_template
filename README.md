@@ -3,9 +3,9 @@
 # OpenGL project template
 
 ### Compiling the project:
-Install a c/c++ compiler and cmake. Then run the following commands in your projects root directory:
-```
-cmake -S . -B build
+Install a C/C++ compiler, [CMake](https://cmake.org/) and [GLFW](https://www.glfw.org/).\
+Run the following commands in your projects root directory:
+```ps
+cmake -B build
 cmake --build build
 ```
-Program will be compiled into the newly-created *'build'* directory.
