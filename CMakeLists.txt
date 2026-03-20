@@ -5,14 +5,12 @@ project(OpenGLApp)
 find_package(glfw3 REQUIRED)
 
 # Include paths
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/glad/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/stb_image)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/glm)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # Source files
 add_executable(${PROJECT_NAME} 
-               ${CMAKE_CURRENT_SOURCE_DIR}/external/glad/src/glad.c 
-               ${CMAKE_CURRENT_SOURCE_DIR}/external/stb_image/stb_image.cpp 
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/glad.c 
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/stb_image/stb_image.cpp 
                ${CMAKE_CURRENT_SOURCE_DIR}/src/shader/shader.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp)
 
