@@ -3,7 +3,7 @@
 # OpenGL project template
 
 ### Compiling the project:
-Install a C/C++ compiler, [CMake](https://cmake.org/) and [GLFW](https://www.glfw.org/).\
+Install a C/C++ compiler and CMake.\
 Run the following commands in your projects root directory:
 ```ps
 cmake -B build
