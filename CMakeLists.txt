@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.10)
 project(OpenGLApp)
 
 # glfw settings
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/libs/glfw-3.4)
 
 # Include paths
