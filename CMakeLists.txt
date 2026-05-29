@@ -12,4 +12,4 @@ find_package(glfw3 REQUIRED)
 aux_source_directory(src SRC_FILES)
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE GLEW::GLEW glfw)
+target_link_libraries(${PROJECT_NAME} PRIVATE GLEW::GLEW glfw GL)
