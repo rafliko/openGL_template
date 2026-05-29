@@ -1,8 +1,8 @@
-#include <glad/glad.h>
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-#include "shader/shader.h"
+#include "shader.hpp"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
@@ -19,10 +19,6 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
-
     // glfw window creation
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "OpenGLApp", nullptr, nullptr);
     if (window == nullptr)
@@ -34,14 +30,15 @@ int main()
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    // glad: load all OpenGL function pointers
-    if (!gladLoadGLLoader(reinterpret_cast<GLADloadproc>(glfwGetProcAddress)))
+    // glew init
+    GLenum err = glewInit();
+    if (GLEW_OK != err)
     {
-        std::cout << "Failed to initialize GLAD" << std::endl;
-        return -1;
+        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
     }
+    fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
 
-    Shader ourShader("shaders/shader.vert", "shaders/shader.frag");
+    Shader shader("shaders/shader.vert", "shaders/shader.frag");
 
     float vertices[] = {
         // positions         // colors
@@ -73,7 +70,7 @@ int main()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        ourShader.use();
+        shader.use();
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 

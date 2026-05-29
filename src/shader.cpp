@@ -1,4 +1,4 @@
-#include "shader.h"
+#include "shader.hpp"
 
 Shader::Shader(const char* vertexPath, const char* fragmentPath)
 {
@@ -15,7 +15,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
         std::stringstream vShaderStream, fShaderStream;
         // read file's buffer contents into streams
         vShaderStream << vShaderFile.rdbuf();
-        fShaderStream << fShaderFile.rdbuf();		
+        fShaderStream << fShaderFile.rdbuf();
         // close file handlers
         vShaderFile.close();
         fShaderFile.close();
@@ -27,6 +27,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
     {
         std::cout << "ERROR::SHADER::FILE_NOT_SUCCESSFULLY_READ" << std::endl;
     }
+    
     const char* vShaderCode = vertexCode.c_str();
     const char* fShaderCode = fragmentCode.c_str();
 
@@ -56,7 +57,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
     if(!success)
     {
         glGetShaderInfoLog(fragment, 512, nullptr, infoLog);
-        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+        std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
     };
     
     // shader Program
@@ -75,6 +76,11 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
     // delete the shaders as they're linked into our program now and no longer necessary
     glDeleteShader(vertex);
     glDeleteShader(fragment);
+}
+
+Shader::~Shader()
+{
+    glDeleteProgram(ID);
 }
 
 void Shader::use() const
