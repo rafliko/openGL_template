@@ -38,7 +38,7 @@ int main()
     }
     fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
 
-    Shader shader("shaders/shader.vert", "shaders/shader.frag");
+    Shader shader(SHADER_SOURCES"shader.vert", SHADER_SOURCES"shader.frag");
 
     float vertices[] = {
         // positions         // colors

@@ -4,7 +4,7 @@ project(openGL_template VERSION 1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-file(COPY shaders DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+add_compile_definitions(SHADER_SOURCES="${CMAKE_CURRENT_SOURCE_DIR}/shaders/")
 
 find_package(GLEW REQUIRED)
 find_package(glfw3 REQUIRED)
